@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad: true });</script>
+    <div class="mermaid">
+        erDiagram
+        customer}|..|{employees: helped
+        job||--||employees: have
+        job{
+        int ID
+        string JOB_TITLE
+        int SALARY
+        }
+        customer{
+        int ID
+        string FIRST_NAME
+        string LAST_NAME
+        int PHONE_NUMBER
+        }
+        employees{
+        int ID
+        string FIRST_NAME
+        string LAST_NAME
+        string EMAIL
+        int PHONE_NUMBER
+        int JOB_ID
+        int HIRED_DATE
+        int LOCATION_ID
+        }
+        employees||--|{manager: has
+        manager{
+        string FIRST_NAME
+        string LAST_NAME
+        int LOCATION_ID
+        string EMAIL
+        int PHONE_NUMBER
+        }
+        employees||--||users: control
+        users{
+        int ID
+        string FIRST_NAME
+        string LAST_NAME
+        string USERNAME
+        string PASSWORD
+        int TYPE_ID
+        int LOCATION_ID
+        int PHONE_NUMBER
+        }
+        location{
+        int ID
+        string PROVINCE
+        string CITY
+        string STREET
+        }
+        category{
+        int ID
+        string NAME
+        string DESCRIPTION
+        }
+        product{
+        int ID
+        string NAME
+        string DESCRIPTION
+        int QTY_STOCK
+        int PRICE
+        int CATEGORY_ID
+        }
+        type{
+        int ID
+        string TYPE
+        }
+        supplier{
+        int ID
+        string COMPANY_NAME
+        int LOCATION_ID
+        int PHONE_NUMBER
+        }
+        location||--||employees: here
+        location||--||supplier: here
+        location||--||users: home
+        location||--||manager: here
+        category||--||product: this
+        product}|--||employees: sell
+        product}|--|{supplier: give
+        type||--|{users: know
+    </div>
+</body>
+</html>
